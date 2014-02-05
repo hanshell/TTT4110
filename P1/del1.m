@@ -28,14 +28,14 @@ delay=0.05; % delay in # sec.
 % greatly increase the possibility to reuse all the code without using
 % separate function files.
 
-piss = input('Skriv inn piss', 's'); % Input defined as string
+phoneNr = input('Write phone number: ', 's'); % Input defined as string
 
 % Initializing temporary variables
 lower=0; 
 upper=0;
 
 % Looping through all characters in the string with a for-loop:
-for number=piss
+for number=phoneNr
     
     % Check if input is a valid character, and sets lower and upper
     % frequencies accordingly
