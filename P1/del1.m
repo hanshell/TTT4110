@@ -9,11 +9,7 @@ time=0.2;
 delay=0.05;
 
 piss = input('Skriv inn piss', 's');
-%for i=0:n
-%    if not isnumeric(piss(i)) && (piss(i) ~= '*' || piss(i) ~= '#')
-%        continue
-%    end
-%end
+
 lower=0;
 upper=0;
 
