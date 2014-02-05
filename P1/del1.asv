@@ -1,7 +1,7 @@
 %% TTT4110 Project - Part 1
 % In this project we will look into the practical application where
 % sinusoidal signals are used to transmit information. This will be done
-% through a touched-tone phone dialer. In this part we will generate the sinusoidal signals to transmit a phonenumber. Part 2 of the project will focus on
+% through a touched-tone phone dialer. In this part we will generate the sinusoidal signalPart 2 of the project will focus on
 % extracting the information encoded in the sinusoidal signals.
 
 %% Valid numbers and characters
@@ -28,7 +28,7 @@ delay=0.05; % delay in # sec.
 % greatly increase the possibility to reuse all the code without using
 % separate function files.
 
-piss = input('Skriv inn piss', 's'); % Input defined as string
+piss = input('Skriv inn piss', 's'); %input defined as string
 
 % Initializing temporary variables
 lower=0; 
