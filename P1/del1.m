@@ -34,6 +34,8 @@ phoneNr = input('Write phone number: ', 's'); % Input defined as string
 lower=0; 
 upper=0;
 
+freqList=[];
+
 % Looping through all characters in the string with a for-loop:
 for number=phoneNr
     
@@ -92,8 +94,16 @@ for number=phoneNr
     xLower=sin(2*pi*lower*t); % Generate the 'lower' sinusoidal siganl
     xUpper=sin(2*pi*upper*t); % Generate the 'upper' sinusoidal signal
     
-    sound(xUpper+xLower, Fs); % Play the combined sinusoidal signal
+    for i=0:1/Fs:time
+        freqList(end+1)=sin(2*pi*lower*i)+sin(2*pi*upper*i);
+    end
+    for i=0:0.05*Fs
+        freqList(end+1)=0;
+    end
+%    sound(xUpper+xLower, Fs); % Play the combined sinusoidal signal
     
-    pause(delay+time); % Pause program to allow delay between signals
+%    pause(delay+time); % Pause program to allow delay between signals
 
 end % End for-loop
+
+sound(freqList, Fs);

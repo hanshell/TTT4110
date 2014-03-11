@@ -1,7 +1,7 @@
 %% TTT4110 Project - Part 1
 % In this project we will look into the practical application where
 % sinusoidal signals are used to transmit information. This will be done
-% through a touched-tone phone dialer. In this part we will generate the sinusoidal signals to transmit a phonenumber. Part 2 of the project will focus on
+% through a touched-tone phone dialer. In this part we will generate the sinusoidal signals to transmit a phone number. Part 2 of the project will focus on
 % extracting the information encoded in the sinusoidal signals.
 
 %% Valid numbers and characters
@@ -28,16 +28,19 @@ delay=0.05; % delay in # sec.
 % greatly increase the possibility to reuse all the code without using
 % separate function files.
 
-piss = input('Skriv inn piss', 's'); % Input defined as string
+phoneNr = input('Write phone number: ', 's'); % Input defined as string
 
 % Initializing temporary variables
 lower=0; 
 upper=0;
 
+freqList=[];
+
 % Looping through all characters in the string with a for-loop:
-for number=piss
+for number=phoneNr
     
-    % Check if input is a valid character
+    % Check if input is a valid character, and sets lower and upper
+    % frequencies accordingly
     if(number == valid_chars(1) || number == valid_chars(2))
         switch number
             case '#'
@@ -48,21 +51,18 @@ for number=piss
                 upper=upper_frequencies(1);
                 
         end
-        lower
-        upper
-        
     % Check if input is zero
     elseif (number == '0')
-        lower=lower_frequencies(4)
-        upper=upper_frequencies(2)
+        lower=lower_frequencies(4);
+        upper=upper_frequencies(2);
        
     % Handle numbers 1-9 accordingly, print error message if value is
-    % neither a number nor in the valid character set and continue to next input in the .
+    % neither a number nor in the valid character set and continue to next input.
     else
         number=str2num(number); % Trying to convert string-character to number
-        if(isempty(number)) % Convertion returns and empty variable if character is non-numeric.
-            error('Not a number or valid character, ignoring');
-            continue % Skip to next character from input string.
+        if(isempty(number) || number==i || number==j) % Convertion returns and empty variable if character is non-numeric.
+            disp('Not a number or valid character, ignoring');
+            continue; % Skip to next character from input string.
         
         end % End if
     
@@ -94,8 +94,13 @@ for number=piss
     xLower=sin(2*pi*lower*t); % Generate the 'lower' sinusoidal siganl
     xUpper=sin(2*pi*upper*t); % Generate the 'upper' sinusoidal signal
     
-    sound(xUpper+xLower, Fs); % Play the combined sinusoidal signal
+    for i=0:1/Fs:time
+        freqList(end+1)=sin(2*pi*lower*i)+sin(2*pi*upper*i);
     
-    pause(delay+time); % Pause program to allow delay between signals
+%    sound(xUpper+xLower, Fs); % Play the combined sinusoidal signal
+    
+%    pause(delay+time); % Pause program to allow delay between signals
 
 end % End for-loop
+
+sound(freqList, Fs);
