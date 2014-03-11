@@ -1,6 +1,8 @@
 function character = freq2char(freq)
 %Converts a sum of frequencies to a character
 
+    % The table below shows the convertion table used in this project. Any
+    % combination of vertical and horizontal value is valid.
     %
     %         1209     1336    1477
     % -------------------------------
@@ -8,9 +10,9 @@ function character = freq2char(freq)
     %  770  |   4   |   5   |   6   |
     %  852  |   7   |   8   |   9   |
     %  941  |   *   |   0   |   #   |
-    %--------------------------------
+    % -------------------------------
 
-    switch(freq)
+    switch(freq) % Start of Switch
         case(1209+697)
             character = '1';
         case(1336+697)
@@ -37,6 +39,6 @@ function character = freq2char(freq)
             character = '#';
         otherwise
             character = 'x';
-    end
-end
+    end % End of switch
+end % End of function
 
