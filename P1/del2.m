@@ -1,4 +1,7 @@
 %% TTT4110 Project - Part 2
+% This part of the project will focus on decoding a signal and convert the
+% frequencies to numbers and characters. Part 1 was encoding a signal,
+% while part 2 is decoding a similar signal. 
 
 %% Frequencys
 % The frequencys are defined as upper and lower bound frequencys. They will
