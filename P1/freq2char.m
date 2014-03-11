@@ -1,8 +1,9 @@
 function character = freq2char(freq)
-%Converts a sum of frequencies to a character
+% Converts a sum of frequencies to a character
 
     % The table below shows the convertion table used in this project. Any
-    % combination of vertical and horizontal value is valid.
+    % combination of vertical and horizontal value is valid. The value of
+    % 'character' is returned at the end of the function.
     %
     %         1209     1336    1477
     % -------------------------------
@@ -13,6 +14,9 @@ function character = freq2char(freq)
     % -------------------------------
 
     switch(freq) % Start of Switch
+        % This switch has a case for every valid combination of freqencies.
+        % 'character' is then set based up on the trigger from this
+        % switch-function
         case(1209+697)
             character = '1';
         case(1336+697)
@@ -37,8 +41,8 @@ function character = freq2char(freq)
             character = '0';
         case(1477+941)
             character = '#';
-        otherwise
-            character = 'x';
-    end % End of switch
-end % End of function
+        otherwise % Triggered in case of an invalid frequency.
+            character = 'x'; % 'x' is returned to show that the given freqency is invalid.
+    end % End of Switch
+end % End of Function
 
