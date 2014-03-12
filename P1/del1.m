@@ -60,7 +60,7 @@ for number=phoneNr
     % neither a number nor in the valid character set and continue to next input.
     else
         number=str2num(number); % Trying to convert string-character to number
-        if(isempty(number) || number==i || number==j) % Convertion returns and empty variable if character is non-numeric.
+        if(isempty(number) | (number==i) | (number==j)) % Convertion returns and empty variable if character is non-numeric.
             disp('Not a number or valid character, ignoring');
             continue; % Skip to next character from input string.
         
@@ -106,4 +106,18 @@ for number=phoneNr
 
 end % End for-loop
 
-sound(freqList, Fs);
+%sound(freqList, Fs);
+
+B=ones(1, 200);
+A=1;
+
+length(freqList(1:1600));
+
+Y=find_number(freqList);
+Y
+%Y
+%length(Y)
+%Y=find_number(freqList);
+
+%length(Y)
+
