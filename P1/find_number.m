@@ -40,7 +40,10 @@ for i=1:length(toneList(1, :))
         for n=1:L
             B1(end+1)=2*B(n)*cos(2*pi*j*n/8000);
         end
-
+        [H, w]=freqz(B1, A, L);
+        plot(w*8000/(2*pi), abs(H));
+        hold on;
+        
         y=filter(B1, A, toneList(:, i));
         if(max(y)>threshold)
             validFrequencies(end+1)=j;

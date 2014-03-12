@@ -30,6 +30,7 @@ delay=0.05; % delay in # sec.
 
 phoneNr = input('Write phone number: ', 's'); % Input defined as string
 
+
 % Initializing temporary variables
 lower=0; 
 upper=0;
