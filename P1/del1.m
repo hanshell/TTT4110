@@ -90,35 +90,22 @@ for number=phoneNr
         end % End switch #2
     end
     
-    t=0:1/Fs:time;
-    
-    xLower=sin(2*pi*lower*t); % Generate the 'lower' sinusoidal siganl
-    xUpper=sin(2*pi*upper*t); % Generate the 'upper' sinusoidal signal
-    
     for i=0:1/Fs:time
-        freqList(end+1)=sin(2*pi*lower*i)+sin(2*pi*upper*i);
+        freqList(end+1)=sin(2*pi*lower*i)+sin(2*pi*upper*i); % Generate the 'lower' and 'upper' sinusoidal signal
     end
     for i=0:0.05*Fs
         freqList(end+1)=0;
     end
-%    sound(xUpper+xLower, Fs); % Play the combined sinusoidal signal
-    
-%    pause(delay+time); % Pause program to allow delay between signals
 
 end % End for-loop
 
-%sound(freqList, Fs);
+% sound(freqList, Fs); % Play the combined sinusoidal signal
 
-B=ones(1, 200);
-A=1;
+% EOP - End of Program.
 
-length(freqList(1:1600));
+%% Decode the newly created signal
+% The three lines below decodes the newly created signal using the function
+% find_number. This i part of Project part 2
 
 Y=find_number(freqList);
 Y
-%Y
-%length(Y)
-%Y=find_number(freqList);
-
-%length(Y)
-

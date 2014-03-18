@@ -23,7 +23,7 @@ function [Y] = find_number(DTMF)
 A=1;
 
 frequencies = [697, 770, 852, 941, 1209, 1336, 1477]; 
-L=300; % Filter bandwidth
+L=300; % Filter length
 B=ones(1, L).*(1/L); % Array of filter-cofficients 
 
 threshold=0.2;
