@@ -29,7 +29,7 @@ B=ones(1, L).*(1/L); % Array of filter-cofficients
 threshold=0.2;
 
 
-data=[]; % Liste for å lage alle signalene, uten pauser
+data=[]; % Liste for ï¿½ lage alle signalene, uten pauser
 
 
 % Removes pauses between the signals in the input
@@ -65,6 +65,10 @@ for i=1:length(toneList(1, :))
         for n=1:L
             B1(end+1)=2*B(n)*cos(2*pi*j*n/8000); % Adds the new filter coffiecients, based on the current frequency in the for-loop.
         end
+        
+        [H, w]=freqz(B1, A, L);
+        plot(w/(2*pi), abs(H));
+        hold on;
 
         y=filter(B1, A, toneList(:, i)); % Sends the signal through the filter, to filter out valid frequencies.
         if(max(y)>threshold) % Checks if the signal is within the threshold.
